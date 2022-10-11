@@ -26,8 +26,9 @@ jobs:
         
 
     - name: Install dependencies
-      run: mvn test-compile -pl apollo-configservice -am
+      run: mvn test-compile -pl aapollo-biz -am
     - name: Check if it passes
-      run: mvn -pl apollo-configservice test -Dtest=com.ctrip.framework.apollo.configservice.service.AppNamespaceServiceWithCacheTest#testAppNamespace
+      run: mvn -pl apollo-biz test -Dtest=com.ctrip.framework.apollo.biz.service.NamespaceBranchServiceTest#testUpdateBranchGrayRulesWithUpdateOnce
     - name: Check if it passes w/ Nondex (Usually fails here)
-      run: mvn -pl apollo-configservice edu.illinois:nondex-maven-plugin:1.1.2:nondex -DnondexRuns=10 -Dtest=com.ctrip.framework.apollo.configservice.service.AppNamespaceServiceWithCacheTest#testAppNamespace
+      run: mvn -pl apollo-biz edu.illinois:nondex-maven-plugin:1.1.2:nondex -DnondexRuns=10 -Dtest=com.ctrip.framework.apollo.biz.service.NamespaceBranchServiceTest#testUpdateBranchGrayRulesWithUpdateOnce
+

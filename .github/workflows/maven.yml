@@ -24,7 +24,8 @@ jobs:
         cache: maven
         
         
-
+    - name: clean said dependencies
+      run: mvn clean install
     - name: Install dependencies
       run: mvn test-compile -pl aapollo-biz -am
     - name: Check if it passes
